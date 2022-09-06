@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import QuoteItem from "./QuoteItem";
 import classes from "./QuoteList.module.css";
@@ -25,6 +25,11 @@ const QuoteList = (props) => {
 	const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
 
 	const changeSortingHandler = () => {
+		// alternate solution
+		// history.push({
+		// 	pathname: location.pathname,
+		// 	search: `?sort=${isSortingAscending ? "desc" : "asc"}`
+		// })
 		history.push(
 			`${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
 		);
@@ -52,3 +57,5 @@ const QuoteList = (props) => {
 };
 
 export default QuoteList;
+
+// useLocation: The useLocation hook returns the location object that represents the current URL. You can think about it like a useState that returns a new location whenever the URL changes.
