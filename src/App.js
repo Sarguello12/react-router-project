@@ -3,6 +3,7 @@ import AllQuotes from "./pages/AllQuotes";
 import NewQuote from "./pages/NewQuote";
 import QuoteDetail from "./pages/QuoteDetail";
 import Layout from "./components/layout/Layout";
+import NotFound from "./pages/NotFound";
 
 function App() {
 	return (
@@ -20,9 +21,14 @@ function App() {
 				<Route path="/new-quote">
 					<NewQuote />
 				</Route>
+				<Route path="*">
+					<NotFound />
+				</Route>
 			</Switch>
 		</Layout>
 	);
 }
 
 export default App;
+
+// path="*": matches all URLS because of the wildcart character, IT MUST COME LAST. If the URL doesnt match any of the paths in the switch it will take this path
